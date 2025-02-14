@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "incidents",
+  "info": {
+    "singularName": "incident",
+    "pluralName": "incidents",
+    "displayName": "Incident",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "start_time": {
+      "type": "time"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "status_incident": {
+      "type": "enumeration",
+      "enum": [
+        "в работе",
+        "выполнена"
+      ],
+      "default": "в работе"
+    },
+    "estimated_restoration_time": {
+      "type": "datetime",
+      "required": false
+    },
+    "end_time": {
+      "type": "time"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "closure_description": {
+      "type": "blocks"
+    },
+    "AddressInfo": {
+      "displayName": "AddressInfo",
+      "type": "component",
+      "repeatable": false,
+      "component": "address-info.address-info"
+    },
+    "DisruptionStats": {
+      "displayName": "DisruptionStats",
+      "type": "component",
+      "repeatable": false,
+      "component": "disruption-stats.disruption-stats"
+    },
+    "sent_to_telegram": {
+      "type": "boolean",
+      "default": false
+    },
+    "sent_to_arm_edds": {
+      "type": "boolean",
+      "default": false
+    },
+    "sent_to_moenergo": {
+      "type": "boolean",
+      "default": false
+    },
+    "sent_to_minenergo": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

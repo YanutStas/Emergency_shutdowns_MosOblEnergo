@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_disruption_stats_disruption_stats",
+  "info": {
+    "displayName": "DisruptionStats",
+    "icon": "folder"
+  },
+  "options": {},
+  "attributes": {
+    "affected_settlements": {
+      "type": "biginteger",
+      "default": "1"
+    },
+    "affected_residents": {
+      "type": "biginteger"
+    },
+    "affected_mkd": {
+      "type": "biginteger"
+    },
+    "affected_hospitals": {
+      "type": "biginteger"
+    },
+    "affected_clinics": {
+      "type": "biginteger"
+    },
+    "affected_schools": {
+      "type": "biginteger"
+    },
+    "affected_kindergartens": {
+      "type": "biginteger"
+    },
+    "boiler_shutdown": {
+      "type": "biginteger"
+    }
+  }
+}

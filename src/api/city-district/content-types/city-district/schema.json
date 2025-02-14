@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "city_districts",
+  "info": {
+    "singularName": "city-district",
+    "pluralName": "city-districts",
+    "displayName": "CityDistrict"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

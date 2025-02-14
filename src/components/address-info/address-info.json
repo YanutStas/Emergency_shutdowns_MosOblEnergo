@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_address_info_address_infos",
+  "info": {
+    "displayName": "AddressInfo",
+    "icon": "house",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "city_district": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city-district.city-district"
+    },
+    "settlement_type": {
+      "type": "enumeration",
+      "enum": [
+        "городской",
+        "сельский"
+      ],
+      "default": "городской"
+    },
+    "streets": {
+      "type": "text"
+    },
+    "building_type": {
+      "type": "enumeration",
+      "enum": [
+        "жилой сектор",
+        "частный сектор",
+        "СНТ",
+        "промзона",
+        "СЗО"
+      ],
+      "default": "жилой сектор"
+    }
+  }
+}
