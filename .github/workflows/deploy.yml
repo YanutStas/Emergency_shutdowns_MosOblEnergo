@@ -1,0 +1,101 @@
+name: Автодеплой Strapi
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: strapi-pipeline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Проверка Strapi
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Забираем репозиторий
+        uses: actions/checkout@v4
+
+      - name: Ставим Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Устанавливаем зависимости
+        run: npm ci
+
+      - name: Проверяем сборку
+        run: npm run build
+
+  deploy:
+    name: Деплой Strapi
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Деплой на сервер
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.ACTIONS_DEPLOY_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            cd "/var/www/strapi"
+            echo "[deploy] Текущая папка: $(pwd)"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm use default
+            echo "[deploy] node: $(node -v)"
+            echo "[deploy] npm: $(npm -v)"
+            echo "[deploy] git status перед pull:"
+            git status --short
+
+            if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+              echo "[deploy] Найдены локальные изменения на сервере, сохраняем в git stash"
+              git stash push -u -m "autodeploy backup $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            fi
+
+            git checkout main
+            git pull --ff-only origin main
+            npm ci
+            npm run build
+            pm2 restart strapi --update-env
+            pm2 status
+            echo "[deploy] Готово"
+
+      - name: Проверяем Strapi после деплоя
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.ACTIONS_DEPLOY_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            URL="http://127.0.0.1:1337/admin"
+            echo "[health] Проверяем ${URL}"
+
+            for attempt in 1 2 3 4 5; do
+              code="$(curl -sS -o /dev/null -w "%{http_code}" "$URL" || true)"
+              echo "[health] Попытка ${attempt}: HTTP ${code}"
+
+              if [ "$code" = "200" ] || [ "$code" = "301" ] || [ "$code" = "302" ]; then
+                echo "[health] Strapi отвечает"
+                exit 0
+              fi
+
+              sleep 5
+            done
+
+            echo "[health] Strapi не ответил после деплоя"
+            exit 1
