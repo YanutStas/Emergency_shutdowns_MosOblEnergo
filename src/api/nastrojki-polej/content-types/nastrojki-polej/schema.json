@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nastrojki_polejs",
+  "info": {
+    "singularName": "nastrojki-polej",
+    "pluralName": "nastrojki-polejs",
+    "displayName": "ТН: Настройки полей"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "nameModus": {
+      "type": "string"
+    },
+    "nameEdds": {
+      "type": "string"
+    },
+    "nameMosEnergoSbit": {
+      "type": "string"
+    },
+    "editable": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "integration_mappings",
+  "info": {
+    "singularName": "integration-mapping",
+    "pluralName": "integration-mappings",
+    "displayName": "ТН: Маппинг интеграциий"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "integration": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "edds_new",
+        "mes",
+        "planned_module"
+      ]
+    },
+    "mappingType": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "district_fias",
+        "reason_code",
+        "equipment_type"
+      ]
+    },
+    "sourceField": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "DISTRICT",
+        "BRIGADE_ACTION"
+      ]
+    },
+    "sourceValue": {
+      "type": "string",
+      "required": true
+    },
+    "matchType": {
+      "type": "enumeration",
+      "required": true,
+      "default": "exact",
+      "enum": [
+        "exact",
+        "contains"
+      ]
+    },
+    "targetValue": {
+      "type": "string",
+      "required": true
+    },
+    "priority": {
+      "type": "integer",
+      "required": true,
+      "default": 100
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "comment": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

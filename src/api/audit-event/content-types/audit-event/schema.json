@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audit_events",
+  "info": {
+    "singularName": "audit-event",
+    "pluralName": "audit-events",
+    "displayName": "Логгер"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_time": { "type": "datetime", "required": true },
+    "username": { "type": "string" },
+    "view_role": { "type": "enumeration", "enum": ["standart", "preview", "supergeneral", "system"] },
+    "action": { "type": "string", "required": true },
+    "page": { "type": "string" },
+    "entity_id": { "type": "string" },
+    "status_event": { "type": "enumeration", "enum": ["success", "error", "info", "warning"] },
+    "ip": { "type": "string" },
+    "request_id": { "type": "string" },
+    "source": { "type": "enumeration", "enum": ["frontend", "backend", "bot", "system"] },
+    "details": { "type": "json" }
+  }
+}

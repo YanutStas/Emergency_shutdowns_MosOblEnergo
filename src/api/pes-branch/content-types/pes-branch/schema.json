@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_branches",
+  "info": {
+    "singularName": "pes-branch",
+    "pluralName": "pes-branches",
+    "displayName": "ПЭС: Филиалы "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name_norm": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "po": {
+      "type": "json"
+    },
+    "subscribers_max": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pes-max-subscriber.pes-max-subscriber",
+      "mappedBy": "branches"
+    }
+  }
+}

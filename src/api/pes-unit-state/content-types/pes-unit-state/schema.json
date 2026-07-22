@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_unit_states",
+  "info": {
+    "singularName": "pes-unit-state",
+    "pluralName": "pes-unit-states",
+    "displayName": "ПЭС: Состояние"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pes_unit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pes-unit.pes-unit",
+      "inversedBy": "state"
+    },
+    "pes_status": {
+      "type": "enumeration",
+      "enum": [
+        "ready",
+        "command_sent",
+        "delay",
+        "en_route",
+        "connected",
+        "repair"
+      ]
+    },
+    "command_sent_at": {
+      "type": "datetime"
+    },
+    "actual_departure_at": {
+      "type": "datetime"
+    },
+    "connected_at": {
+      "type": "datetime"
+    },
+    "rerouted_at": {
+      "type": "datetime"
+    },
+    "destination_type": {
+      "type": "enumeration",
+      "enum": [
+        "assembly",
+        "tp"
+      ]
+    },
+    "destination_ref": {
+      "type": "string"
+    },
+    "destination_title": {
+      "type": "string"
+    },
+    "destination_address": {
+      "type": "string"
+    },
+    "destination_lat": {
+      "type": "float"
+    },
+    "destination_lon": {
+      "type": "float"
+    },
+    "last_comment": {
+      "type": "string"
+    },
+    "updated_from": {
+      "type": "enumeration",
+      "enum": [
+        "web",
+        "telegram",
+        "system"
+      ]
+    },
+    "updated_by_chat_id": {
+      "type": "integer"
+    }
+  }
+}

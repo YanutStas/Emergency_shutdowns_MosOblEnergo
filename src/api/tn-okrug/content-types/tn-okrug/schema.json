@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tn_okruga",
+  "info": {
+    "singularName": "tn-okrug",
+    "pluralName": "tn-okruga",
+    "displayName": "ТН: Округа"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "source_name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "geometry": {
+      "type": "json",
+      "required": true
+    },
+    "properties": {
+      "type": "json"
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "tn_pos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tn-po.tn-po",
+      "mappedBy": "tn_okruga"
+    },
+    "tn_filialies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tn-filialy.tn-filialy",
+      "mappedBy": "tn_okruga"
+    }
+  }
+}

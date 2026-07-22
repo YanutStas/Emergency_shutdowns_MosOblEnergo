@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tn_pos",
+  "info": {
+    "singularName": "tn-po",
+    "pluralName": "tn-pos",
+    "displayName": "ТН: ПО"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "tn_filialy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tn-filialy.tn-filialy"
+    },
+    "tn_okruga": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tn-okrug.tn-okrug",
+      "inversedBy": "tn_pos"
+    }
+  }
+}

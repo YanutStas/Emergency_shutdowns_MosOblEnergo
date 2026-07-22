@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teh_narusheniyas",
+  "info": {
+    "singularName": "teh-narusheniya",
+    "pluralName": "teh-narusheniyas",
+    "displayName": "ТН: Тех нарушения",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "energoObject": {
+      "type": "string"
+    },
+    "createDateTime": {
+      "type": "datetime"
+    },
+    "recoveryPlanDateTime": {
+      "type": "datetime"
+    },
+    "addressList": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text",
+      "default": "Электропробой"
+    },
+    "data": {
+      "type": "json"
+    },
+    "recoveryFactDateTime": {
+      "type": "datetime"
+    },
+    "dispCenter": {
+      "type": "string"
+    },
+    "sendedEdds": {
+      "type": "boolean"
+    },
+    "guid": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "sendedMosEnergoSbit": {
+      "type": "boolean"
+    },
+    "STATUS_NAME": {
+      "type": "enumeration",
+      "enum": [
+        "открыта",
+        "удалена",
+        "закрыта",
+        "запитана",
+        "запланировано",
+        "начата"
+      ]
+    },
+    "PES_COUNT": {
+      "type": "string",
+      "default": "0"
+    },
+    "PES_POWER": {
+      "type": "string",
+      "default": "0"
+    },
+    "required_brigades": {
+      "type": "integer",
+      "default": 0
+    },
+    "required_workers": {
+      "type": "integer",
+      "default": 0
+    },
+    "required_equipment": {
+      "type": "integer",
+      "default": 0
+    },
+    "required_emergency_power_supply": {
+      "type": "integer",
+      "default": 0
+    },
+    "BASE_TYPE": {
+      "type": "integer"
+    },
+    "edds_electricityRequestId": {
+      "type": "string"
+    }
+  }
+}

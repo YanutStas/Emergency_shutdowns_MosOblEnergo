@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "electro_objects",
+  "info": {
+    "singularName": "electro-object",
+    "pluralName": "electro-objects",
+    "displayName": "ПЭС: R3 объекты/линии",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "keylink": {
+      "type": "string",
+      "unique": true
+    },
+    "subcontrol_area_name": {
+      "type": "string"
+    },
+    "enobj_name": {
+      "type": "string"
+    },
+    "subclass_name": {
+      "type": "string"
+    },
+    "class_name": {
+      "type": "string"
+    },
+    "rclass_name": {
+      "type": "string"
+    },
+    "voltage": {
+      "type": "string"
+    },
+    "installation_date_raw": {
+      "type": "string"
+    },
+    "installation_date": {
+      "type": "datetime"
+    },
+    "address": {
+      "type": "string"
+    },
+    "settlement": {
+      "type": "string"
+    },
+    "equipment_exists": {
+      "type": "string"
+    },
+    "eq_datetime_raw": {
+      "type": "string"
+    },
+    "eq_datetime": {
+      "type": "datetime"
+    },
+    "eq_insert_datetime_raw": {
+      "type": "string"
+    },
+    "eq_insert_datetime": {
+      "type": "datetime"
+    },
+    "lat": {
+      "type": "float"
+    },
+    "lon": {
+      "type": "float"
+    },
+    "sheet_name": {
+      "type": "string"
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "source_row": {
+      "type": "integer"
+    }
+  }
+}

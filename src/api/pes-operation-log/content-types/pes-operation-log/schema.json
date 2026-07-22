@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_operation_logs",
+  "info": {
+    "singularName": "pes-operation-log",
+    "pluralName": "pes-operation-logs",
+    "displayName": "ПЭС: История операций ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event_uid": {
+      "type": "uid",
+      "required": true
+    },
+    "event_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": [
+        "dispatch",
+        "reroute",
+        "cancel",
+        "depart",
+        "connect",
+        "ready",
+        "repair"
+      ]
+    },
+    "status_from": {
+      "type": "enumeration",
+      "enum": [
+        "ready,",
+        "command_sent",
+        "delay",
+        "en_route",
+        "connected",
+        "repair"
+      ]
+    },
+    "status_to": {
+      "type": "enumeration",
+      "enum": [
+        "ready",
+        "command_sent",
+        "delay",
+        "en_route",
+        "connected",
+        "repair"
+      ]
+    },
+    "comment": {
+      "type": "string"
+    },
+    "pes_unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pes-unit.pes-unit",
+      "inversedBy": "operation_logs"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "po": {
+      "type": "string"
+    },
+    "destination_type": {
+      "type": "enumeration",
+      "enum": [
+        "assembly",
+        "tp"
+      ]
+    },
+    "destination_title": {
+      "type": "string"
+    },
+    "destination_address": {
+      "type": "string"
+    },
+    "destination_lat": {
+      "type": "float"
+    },
+    "destination_lon": {
+      "type": "float"
+    },
+    "actor_role": {
+      "type": "enumeration",
+      "enum": [
+        "standart",
+        "supergeneral",
+        "telegram",
+        "system"
+      ]
+    },
+    "actor_login": {
+      "type": "string"
+    },
+    "actor_chat_id": {
+      "type": "integer"
+    },
+    "command_sent_at": {
+      "type": "datetime"
+    },
+    "actual_departure_at": {
+      "type": "datetime"
+    },
+    "delay_seconds": {
+      "type": "integer"
+    },
+    "delay_over_15m": {
+      "type": "boolean"
+    },
+    "tn_guid": {
+      "type": "string"
+    },
+    "batch_id": {
+      "type": "string"
+    }
+  }
+}

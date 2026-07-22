@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zhurnal_otpravkis",
+  "info": {
+    "singularName": "zhurnal-otpravki",
+    "pluralName": "zhurnal-otpravkis",
+    "displayName": "ТН: Журнал отправки"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "json"
+    }
+  }
+}

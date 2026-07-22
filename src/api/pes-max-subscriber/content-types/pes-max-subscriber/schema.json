@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_max_subscribers",
+  "info": {
+    "singularName": "pes-max-subscriber",
+    "pluralName": "pes-max-subscribers",
+    "displayName": "ПЭС: Подписчики MAX"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "max_user_id": {
+      "type": "integer"
+    },
+    "username": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false
+    },
+    "subscribe_all": {
+      "type": "boolean",
+      "default": false
+    },
+    "last_interaction_at": {
+      "type": "datetime"
+    },
+    "branches": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pes-branch.pes-branch",
+      "inversedBy": "subscribers_max"
+    },
+    "max_chat_id": {
+      "type": "integer"
+    }
+  }
+}

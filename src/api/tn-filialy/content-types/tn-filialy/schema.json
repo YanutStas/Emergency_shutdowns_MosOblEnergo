@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tn_filialies",
+  "info": {
+    "singularName": "tn-filialy",
+    "pluralName": "tn-filialies",
+    "displayName": "ТН: Филиалы"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "rezim": {
+      "type": "enumeration",
+      "enum": [
+        "bez_rezhima",
+        "rpg",
+        "orr"
+      ]
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "ovb": {
+      "type": "biginteger"
+    },
+    "osn_resours": {
+      "type": "biginteger"
+    },
+    "tn_okruga": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tn-okrug.tn-okrug",
+      "inversedBy": "tn_filialies"
+    }
+  }
+}

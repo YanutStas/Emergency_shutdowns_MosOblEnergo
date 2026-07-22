@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adress",
+  "info": {
+    "singularName": "adres",
+    "pluralName": "adress",
+    "displayName": "ТН: Адрес",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fiasId": {
+      "type": "string"
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "lon": {
+      "type": "string"
+    },
+    "lat": {
+      "type": "string"
+    },
+    "all": {
+      "type": "json"
+    }
+  }
+}

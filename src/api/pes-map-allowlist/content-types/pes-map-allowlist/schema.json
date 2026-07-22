@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_map_allowlists",
+  "info": {
+    "singularName": "pes-map-allowlist",
+    "pluralName": "pes-map-allowlists",
+    "displayName": "ПЭС Дашборд"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pesId": {
+      "type": "integer"
+    }
+  }
+}

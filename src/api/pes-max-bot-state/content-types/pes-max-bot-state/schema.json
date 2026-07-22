@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pes_max_bot_states",
+  "info": {
+    "singularName": "pes-max-bot-state",
+    "pluralName": "pes-max-bot-states",
+    "displayName": "ПЭС: Состояние MAX-бота "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "default": "main",
+      "required": true
+    },
+    "polling_marker": {
+      "type": "integer",
+      "default": 0
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "last_poll_at": {
+      "type": "datetime"
+    }
+  }
+}
