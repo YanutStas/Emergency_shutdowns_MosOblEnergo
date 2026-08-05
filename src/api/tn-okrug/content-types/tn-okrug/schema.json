@@ -43,7 +43,7 @@
     },
     "tn_filialies": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::tn-filialy.tn-filialy",
       "mappedBy": "tn_okruga"
     }

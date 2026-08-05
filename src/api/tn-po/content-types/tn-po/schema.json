@@ -23,8 +23,9 @@
     },
     "tn_filialy": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tn-filialy.tn-filialy"
+      "relation": "manyToOne",
+      "target": "api::tn-filialy.tn-filialy",
+      "inversedBy": "tn_pos"
     },
     "tn_okruga": {
       "type": "relation",
