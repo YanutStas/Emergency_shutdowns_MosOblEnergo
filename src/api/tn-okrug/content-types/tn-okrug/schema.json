@@ -37,7 +37,7 @@
     },
     "tn_pos": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::tn-po.tn-po",
       "mappedBy": "tn_okruga"
     },

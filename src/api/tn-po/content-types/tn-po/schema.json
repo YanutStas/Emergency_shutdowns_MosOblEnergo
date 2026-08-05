@@ -29,7 +29,7 @@
     },
     "tn_okruga": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::tn-okrug.tn-okrug",
       "inversedBy": "tn_pos"
     }
