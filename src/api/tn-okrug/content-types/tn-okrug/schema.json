@@ -35,6 +35,12 @@
       "type": "boolean",
       "default": true
     },
+    "ovb": {
+      "type": "biginteger"
+    },
+    "osn_resours": {
+      "type": "biginteger"
+    },
     "tn_pos": {
       "type": "relation",
       "relation": "manyToMany",

@@ -21,6 +21,12 @@
       "type": "boolean",
       "default": true
     },
+    "ovb": {
+      "type": "biginteger"
+    },
+    "osn_resours": {
+      "type": "biginteger"
+    },
     "tn_filialy": {
       "type": "relation",
       "relation": "manyToOne",
