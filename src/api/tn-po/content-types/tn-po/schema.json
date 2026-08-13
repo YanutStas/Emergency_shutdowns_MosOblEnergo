@@ -32,6 +32,12 @@
       "relation": "manyToMany",
       "target": "api::tn-okrug.tn-okrug",
       "inversedBy": "tn_pos"
+    },
+    "tn_po_okrug_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tn-po-okrug-link.tn-po-okrug-link",
+      "mappedBy": "tn_po"
     }
   }
 }

@@ -46,6 +46,12 @@
       "relation": "manyToMany",
       "target": "api::tn-filialy.tn-filialy",
       "mappedBy": "tn_okruga"
+    },
+    "tn_po_okrug_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tn-po-okrug-link.tn-po-okrug-link",
+      "mappedBy": "tn_okrug"
     }
   }
 }

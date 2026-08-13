@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tn_po_okrug_links",
+  "info": {
+    "singularName": "tn-po-okrug-link",
+    "pluralName": "tn-po-okrug-links",
+    "displayName": "ТН: Привязки ПО к округам",
+    "description": "Пара ПО + округ с ресурсами для Дашборда ОО"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "ovb": {
+      "type": "biginteger"
+    },
+    "osn_resours": {
+      "type": "biginteger"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "tn_filialy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tn-filialy.tn-filialy",
+      "inversedBy": "tn_po_okrug_links"
+    },
+    "tn_po": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tn-po.tn-po",
+      "inversedBy": "tn_po_okrug_links"
+    },
+    "tn_okrug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tn-okrug.tn-okrug",
+      "inversedBy": "tn_po_okrug_links"
+    }
+  }
+}
