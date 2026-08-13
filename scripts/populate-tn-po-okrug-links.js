@@ -151,8 +151,11 @@ const createLinkPayload = (filialRow, poRow, okrugRow, sortOrder) => ({
   name: buildLinkName(filialRow, poRow, okrugRow),
   is_active: poRow?.is_active !== false && okrugRow?.is_active !== false,
   sort_order: sortOrder,
-  ovb: getResource(poRow, "ovb") ?? getResource(okrugRow, "ovb"),
-  osn_resours: getResource(poRow, "osn_resours") ?? getResource(okrugRow, "osn_resours"),
+  ovb: getResource(poRow, "ovb") ?? getResource(okrugRow, "ovb") ?? getResource(filialRow, "ovb"),
+  osn_resours:
+    getResource(poRow, "osn_resours") ??
+    getResource(okrugRow, "osn_resours") ??
+    getResource(filialRow, "osn_resours"),
   comment: "Автозаполнение из текущих связей ТН: Филиалы / ПО / Округа",
   tn_filialy: relationValue(filialRow),
   tn_po: relationValue(poRow),
